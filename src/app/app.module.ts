@@ -8,6 +8,8 @@ import {RoversModule} from './rovers/rovers.module';
 import {ServicesModule} from './core/services/services.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PhotosModule} from './photos/photos.module';
+import {WidgetsModule} from './core/widgets/widgets.module';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    // Widgets
+    WidgetsModule,
     // Services
     ServicesModule,
     HttpClientModule,
     // Feature Modules
     RoversModule,
+    PhotosModule,
     // Routing
     AppRoutingModule
   ],
