@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {RoversModule} from './rovers/rovers.module';
 import {ServicesModule} from './core/services/services.module';
 import {HttpClientModule} from '@angular/common/http';
+import {WidgetsModule} from './core/widgets/widgets.module';
 
 @NgModule({
   declarations: [

@@ -1,9 +1,9 @@
 <div class="details">
   <h3>{{rover.name}}</h3>
 
-  <p>Date d'atterrissage sur Mars : {{rover.landing_date}}</p>
-  <p>Date de lancement : {{rover.launch_date}}</p>
-  <p>Statut : {{rover.status}}</p>
+  <p>Date d'atterrissage sur Mars : {{rover.landing_date |dateIso}}</p>
+  <p>Date de lancement : {{rover.launch_date |dateIso}}</p>
+  <p>Statut : {{rover.status |status}}</p>
   <p>Max sol : {{rover.max_sol}}</p>
 
   <p>Caméras :
