@@ -7,7 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {RoversModule} from './rovers/rovers.module';
 import {ServicesModule} from './core/services/services.module';
 import {HttpClientModule} from '@angular/common/http';
-import {WidgetsModule} from './core/widgets/widgets.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,9 +16,13 @@ import {WidgetsModule} from './core/widgets/widgets.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    // Services
     ServicesModule,
     HttpClientModule,
+    // Feature Modules
     RoversModule,
+    // Routing
     AppRoutingModule
   ],
   providers: [],

@@ -3,4 +3,5 @@
                 (select)="selectedRover = $event"></app-rover-item>
 
 <app-rover-details *ngIf="selectedRover"
-                   [rover]="selectedRover"></app-rover-details>
+                   [rover]="selectedRover"
+                   [@details]="selectedRover.name"></app-rover-details>
