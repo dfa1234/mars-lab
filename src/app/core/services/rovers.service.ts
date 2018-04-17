@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Rover} from '../model/model';
+import {map} from 'rxjs/operators';
+import {NasaRoversResult, Rover} from '../model/model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,11 @@ export class RoversService {
   constructor(private httpClient: HttpClient) { }
 
   list(): Observable<Rover[]> {
-    const url = 'http://localhost:3390/rovers';
-    return this.httpClient.get<Rover[]>(url);
+    const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers?api_key=DEMO_KEY';
+    return this.httpClient.get<NasaRoversResult>(url)
+      .pipe(
+        map(result => result.rovers)
+      );
   }
 
 }

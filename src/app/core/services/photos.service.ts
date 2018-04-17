@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Photo} from '../model/model';
+import {map} from 'rxjs/operators';
+import {NasaPhotosResult, Photo} from '../model/model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PhotosService {
   constructor(private httpClient: HttpClient) { }
 
   search(rover: string, camera?: string, sol?: number): Observable<Photo[]> {
-    let url = `http://localhost:3390/rovers/${rover}/photos`;
+    let url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos`;
     const query = [];
     if (camera) {
       query.push('camera=' + camera);
@@ -19,11 +20,15 @@ export class PhotosService {
     if (sol != null) {
       query.push('sol=' + sol);
     }
+    query.push('api_key=DEMO_KEY');
     const queryString = query.join('&');
     if (queryString) {
       url += '?' + queryString;
     }
-    return this.httpClient.get<Photo[]>(url);
+    return this.httpClient.get<NasaPhotosResult>(url)
+      .pipe(
+        map(result => result.photos)
+      );
   }
 
 }
