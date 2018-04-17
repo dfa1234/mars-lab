@@ -1,0 +1,25 @@
+<form (ngSubmit)="emitSearch()"
+      #formInfo="ngForm">
+  Rover
+  <select name="rover" [(ngModel)]="data.rover"
+          required>
+    <option [ngValue]="undefined"></option>
+    <option *ngFor="let rover of rovers$ |async"
+            [ngValue]="rover">{{rover.name}}</option>
+  </select>
+  -
+  Camera
+  <select name="camera" [(ngModel)]="data.camera">
+    <option [ngValue]="undefined"></option>
+    <option *ngFor="let camera of data.rover && data.rover.cameras"
+            [ngValue]="camera">{{camera.name}}</option>
+  </select>
+  -
+  Sol
+  <input type="number" name="sol" [(ngModel)]="data.sol">
+
+  <p>
+    <button type="submit"
+            [disabled]="formInfo.invalid">Rechercher</button>
+  </p>
+</form>

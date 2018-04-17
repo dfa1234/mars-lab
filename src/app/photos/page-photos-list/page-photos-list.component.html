@@ -1,3 +1,5 @@
+<app-photo-search-form (search)="doSearch($event)"></app-photo-search-form>
+
 <div *ngIf="photos$ |async as photos">
   <p>Photos : {{photos.length}}</p>
   <app-photo-item *ngFor="let photo of photos"

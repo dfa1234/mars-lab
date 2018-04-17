@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PhotosService} from '../../core/services/photos.service';
 import {Observable} from 'rxjs';
 import {Photo} from '../../core/model/model';
+import {SearchEvent} from '../photo-search-form/photo-search-form.component';
 
 @Component({
   selector: 'app-page-photos-list',
@@ -15,7 +16,10 @@ export class PagePhotosListComponent implements OnInit {
   constructor(private photos: PhotosService) { }
 
   ngOnInit() {
-    this.photos$ = this.photos.search('Spirit', 'NAVCAM', 100);
+  }
+
+  doSearch(event: SearchEvent) {
+    this.photos$ = this.photos.search(event.rover, event.camera, event.sol);
   }
 
 }
