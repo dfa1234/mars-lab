@@ -1,1 +1,17 @@
-<pre>{{rover |json}}</pre>
+<div class="details">
+  <h3>{{rover.name}}</h3>
+
+  <p>Date d'atterrissage sur Mars : {{rover.landing_date}}</p>
+  <p>Date de lancement : {{rover.launch_date}}</p>
+  <p>Statut : {{rover.status}}</p>
+  <p>Max sol : {{rover.max_sol}}</p>
+
+  <p>Caméras :
+    <span *ngFor="let camera of rover.cameras; index as index">
+      <span *ngIf="index > 0">, </span>
+      {{camera.name}} = {{camera.full_name}}</span>
+  </p>
+
+  <div class="description" [innerHTML]="rover.description"></div>
+</div>
+
