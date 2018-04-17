@@ -6,6 +6,7 @@ import { PagePhotosListComponent } from './page-photos-list/page-photos-list.com
 import { PhotoItemComponent } from './photo-item/photo-item.component';
 import { PhotoSearchFormComponent } from './photo-search-form/photo-search-form.component';
 import {FormsModule} from '@angular/forms';
+import { PageBigPhotoComponent } from './page-big-photo/page-big-photo.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     PhotosRoutingModule
   ],
-  declarations: [PagePhotosListComponent, PhotoItemComponent, PhotoSearchFormComponent]
+  declarations: [PagePhotosListComponent, PhotoItemComponent, PhotoSearchFormComponent, PageBigPhotoComponent]
 })
 export class PhotosModule { }

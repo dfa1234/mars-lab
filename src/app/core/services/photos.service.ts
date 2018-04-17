@@ -26,4 +26,9 @@ export class PhotosService {
     return this.httpClient.get<Photo[]>(url);
   }
 
+  get(rover: string, photoId: number): Observable<Photo> {
+    const url = `http://localhost:3390/rovers/${rover}/photos/${photoId}`;
+    return this.httpClient.get<Photo>(url);
+  }
+
 }

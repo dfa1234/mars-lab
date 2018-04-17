@@ -1,6 +1,6 @@
 <div class="item">
   <div class="photo">
-    <a [href]="photo.img_src" target="_blank">
+    <a [routerLink]="['/photos', photo.rover.name, photo.id]">
       <img [src]="photo.img_src">
     </a>
   </div>
