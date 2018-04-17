@@ -1,2 +1,6 @@
 <app-rover-item *ngFor="let rover of rovers$ |async"
-                [rover]="rover"></app-rover-item>
+                [rover]="rover"
+                (select)="selectedRover = $event"></app-rover-item>
+
+<app-rover-details *ngIf="selectedRover"
+                   [rover]="selectedRover"></app-rover-details>

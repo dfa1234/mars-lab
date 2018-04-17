@@ -1,5 +1,5 @@
 <div class="item">
-  <div class="photo">
+  <div class="photo" (click)="select.emit(rover)">
     <img [src]="rover.img_src">
   </div>
   <div class="label">{{rover.name}}</div>

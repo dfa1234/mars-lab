@@ -11,6 +11,7 @@ import {Rover} from '../../core/model/model';
 export class PageRoversListComponent implements OnInit {
 
   rovers$: Observable<Rover[]>;
+  selectedRover: Rover;
 
   constructor(private rovers: RoversService) { }
 
