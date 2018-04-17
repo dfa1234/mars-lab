@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {RoversModule} from './rovers/rovers.module';
+import {ServicesModule} from './core/services/services.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import {RoversModule} from './rovers/rovers.module';
   ],
   imports: [
     BrowserModule,
+    ServicesModule,
+    HttpClientModule,
     RoversModule,
     AppRoutingModule
   ],
