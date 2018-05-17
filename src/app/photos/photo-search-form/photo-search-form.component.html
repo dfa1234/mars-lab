@@ -1,15 +1,18 @@
 <form (ngSubmit)="emitSearch()"
       #formInfo="ngForm">
   Rover
-  <select name="rover" [(ngModel)]="data.rover"
+  <select name="rover"
+          [(ngModel)]="data.rover"
+          (ngModelChange)="data.camera = undefined"
           required>
     <option [ngValue]="undefined"></option>
     <option *ngFor="let rover of rovers$ |async"
             [ngValue]="rover">{{rover.name}}</option>
   </select>
   -
-  Camera
-  <select name="camera" [(ngModel)]="data.camera">
+  <span [class.disabled]="!data.rover">Camera </span>
+  <select name="camera" [(ngModel)]="data.camera"
+          [disabled]="!data.rover">
     <option [ngValue]="undefined"></option>
     <option *ngFor="let camera of data.rover && data.rover.cameras"
             [ngValue]="camera">{{camera.name}}</option>
@@ -19,8 +22,10 @@
   <input type="number" name="sol" [(ngModel)]="data.sol"
          required>
 
-  <p>
-    <button type="submit"
-            [disabled]="formInfo.invalid">Rechercher</button>
-  </p>
+  &nbsp;&nbsp;
+  <button [disabled]="!data.rover"
+          (click)="data.sol = data.rover.max_sol">Max sol</button>
+  &nbsp;&nbsp;
+  <button type="submit"
+          [disabled]="formInfo.invalid">Rechercher</button>
 </form>
